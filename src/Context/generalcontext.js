@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
+export const ThemeContext = React.createContext()
 
-export const themeContext = React.createContext
-const [firstName, setfirstName] = useState("Manuel")
-const [lastName, setlastName] = useState("Perez")
 
-const generalcontext = () => {
+const Generalcontext = (props) => {
+
+    const [firstName, setfirstName] = useState('Manuel')
+    const [lastName, setlastName] = useState('Perez')
     return (
-        <div>
-
-        </div>
+        <ThemeContext.Provider value={{ firstName, lastName }}>
+            {props.children}
+        </ThemeContext.Provider>
     )
 }
 
-export default generalcontext
+export default Generalcontext
